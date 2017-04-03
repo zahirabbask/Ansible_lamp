@@ -1,0 +1,26 @@
+---
+# tasks file for server
+
+- name: Update apt cache
+  apt: update_cache=yes cache_valid_time=3600
+  sudo: yes
+
+- name: Add php5.6 repo
+  apt_repository: repo='ppa:ondrej/php' state='present' update_cache='yes'
+
+- name: Install required software
+  apt: name={{ item }} state=present
+  sudo: yes
+  with_items:
+    - apache2
+    - php7.0
+    - php5.6
+    - php5.6-mysql
+    - php-gettext
+    - php5.6-mbstring
+    - php-mbstring
+    - php7.0-mbstring
+    - php-xdebug
+    - libapache2-mod-php5.6
+    - libapache2-mod-php7.0
+

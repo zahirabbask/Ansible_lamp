@@ -1,0 +1,12 @@
+- hosts: Dev3Server
+
+  roles:
+    - server
+    - php
+    - mysql
+    - phpmyadmin
+    - mongodb
+    - npm
+
+  vars:
+    MySQL_root_pass: amt123

@@ -1,0 +1,14 @@
+---
+# tasks file for php
+- name: Download PhpMyadmin  
+  get_url: 
+    url=https://files.phpmyadmin.net/phpMyAdmin/4.6.6/phpMyAdmin-4.6.6-english.tar.gz
+    dest=/tmp/phpMyAdmin-4.6.6-english.tar.gz
+    validate_certs=no 
+    
+
+- name: Extract PhpMyadmin  
+  unarchive: src=/tmp/phpMyAdmin-4.6.6-english.tar.gz dest=/var/www/html/ copy=no 
+
+- name: Move phpmyadmin
+  command: mv /var/www/html/phpMyAdmin-4.6.6-english /var/www/html/pmya
